@@ -280,11 +280,11 @@ namespace DYNAMatching
                 }
             }
 
-            if (n == 1)
-            {
-                ClearText();
-                sysPARTNO = value.ToString().Trim();
-            }
+            //if (n == 1)
+            //{
+            //    ClearText();
+            //    sysPARTNO = value.ToString().Trim();
+            //}
 
         }
 

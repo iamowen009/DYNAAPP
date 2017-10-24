@@ -397,11 +397,11 @@ namespace DYNAMatching
                 }
             }
 
-            if (n == 1)
-            {
-                ClearText();
-                sysPARTNO = CheckFormatPartNo(value);
-            }
+            //if (n == 1)
+            //{
+            //    ClearText();
+            //    sysPARTNO = CheckFormatPartNo(value);
+            //}
 
         }
 
