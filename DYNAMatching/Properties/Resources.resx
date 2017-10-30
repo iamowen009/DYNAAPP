@@ -118,32 +118,29 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="2017-10-19_221138" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\2017-10-19_221138.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Nissan" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Nissan.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="QRNissanNMT" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\QRNissanNMT.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="check-37583_960_720" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\check-37583_960_720.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Nissan" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Nissan.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="list-icon-67" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\list-icon-67.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="QRTOYOTA" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\QRTOYOTA.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="QRSCANMATCHINGLIST" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\QRSCANMATCHINGLIST.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="signin" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\signin.gif;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="check-37583_960_720" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\check-37583_960_720.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="QRNissanNPT" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\QRNissanNPT.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="2017-10-19_221600" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\2017-10-19_221600.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="QRSCANMATCHINGLIST" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\QRSCANMATCHINGLIST.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="2017-10-19_221138" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2017-10-19_221138.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="toyota" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\toyota.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -151,11 +148,17 @@
   <data name="pict--error-cloud-round-icons---vector-stencils-library.png--diagram-flowchart-example" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\pict--error-cloud-round-icons---vector-stencils-library.png--diagram-flowchart-example.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="2017-10-19_221600" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2017-10-19_221600.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="tech_transfer" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\tech_transfer.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="signin" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\signin.gif;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="list-icon-67" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\list-icon-67.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="BuinnovationTAB" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BuinnovationTAB.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

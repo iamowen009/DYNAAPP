@@ -54,32 +54,44 @@ namespace DYNAMatching
         {
             if ((e.KeyChar == (char)Keys.Enter) && (txtCusPartNo.Text.Trim() != ""))
             {
-                CheckExitCode(txtCusPartNo.Text.Trim());
-                CheckToyotaPartNo();
-
-                txtCusPartNo.Text = txtCusPartNo.Text.Trim();
-                txtCusPartNo.Text = txtCusPartNo.Text.Substring(1, txtCusPartNo.Text.Length - 1);
-
-                DataTable DTS = new DataTable();
-                string condition = " and Part_no = '" + txtCusPartNo.Text.Trim() + "'";
-                DTS = DBT.GetExcuteDataTableOneCon("spGetMPartByConditionForApp", condition);
-
-                if (DTS.Rows.Count > 0)
+                Control control = (Control)sender;
+                if (control.Text == "@BUINNOVATIONTAB")
                 {
-                    if ((DTS.Rows[0]["Picture"] != null) || (DTS.Rows[0]["Picture"].ToString().Trim() != ""))
-                    {
-                        pbCusImage.Image = byteArrayToImage(DTS.Rows[0]["Picture"] as byte[]);
-                    }
-                    //txtCusRAN.Text = DTS.Rows[0]["Part_Name"].ToString();
-                }
-
-                if ((txtCusQTY.Text != "") && (txtOrderNo.Text != ""))
-                {
-                    txtDYNAPartNo.Focus();
+                    txtCusPartNo.Text = "";
+                    MatchingResult("Error");
+                    txtCusPartNo.Focus();
                 }
                 else
                 {
-                    txtCusQTY.Focus();
+                    CheckExitCode(txtCusPartNo.Text.Trim());
+                    CheckToyotaPartNo();
+                    txtCusPartNo.Text = txtCusPartNo.Text.Trim();
+                    //txtCusPartNo.Text = txtCusPartNo.Text.Substring(1, txtCusPartNo.Text.Length - 1); เอาลบตัวหน้าออก
+
+                    DataTable DTS = new DataTable();
+                    string condition = " and Part_no = '" + txtCusPartNo.Text.Trim() + "'";
+                    DTS = DBT.GetExcuteDataTableOneCon("spGetMPartByConditionForApp", condition);
+
+                    if (DTS.Rows.Count > 0)
+                    {
+                        if ((DTS.Rows[0]["Picture"] != null) || (DTS.Rows[0]["Picture"].ToString().Trim() != ""))
+                        {
+                            byte[] temp = (byte[])DTS.Rows[0]["Picture"];
+                            if (Convert.ToBase64String(temp) != "")
+                                pbCusImage.Image = byteArrayToImage(DTS.Rows[0]["Picture"] as byte[]);
+                        }
+                        txtCusQTY.Text = DTS.Rows[0]["Qty"].ToString();
+                    }
+
+                    if ((txtCusQTY.Text != "") && (txtOrderNo.Text != ""))
+                    {
+                        txtDYNAPartNo.Focus();
+                    }
+                    else
+                    {
+                        //txtCusQTY.Focus(); load by Base
+                        txtOrderNo.Focus();
+                    }
                 }
 
             }
@@ -230,6 +242,8 @@ namespace DYNAMatching
         {
             if (e.KeyChar == (char)Keys.Enter)
             {
+                if (txtOrderNo.Text.Trim() == "@BUINNOVATIONTAB")
+                    txtOrderNo.Text = "";
                 CheckExitCode(txtOrderNo.Text.Trim());
                 txtDYNAPartNo.Focus();
             }
@@ -240,7 +254,9 @@ namespace DYNAMatching
             ClearText();
             int n = 0;
             string[] separators = { "^" };
-            string[] words = value.Split(separators, StringSplitOptions.RemoveEmptyEntries);
+            //string[] words = value.Split(separators, StringSplitOptions.RemoveEmptyEntries);
+            string[] words = value.Split('^');
+
             foreach (var word in words)
             {
                 n++;
@@ -403,6 +419,21 @@ namespace DYNAMatching
         private void pictureBox2_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+            
+        private void pictureBox4_Click(object sender, EventArgs e)
+        {
+            SendKeys.Send("{TAB}");
+        }
+
+        private void ComparePartToyota_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            SendKeys.Send("{TAB}");
         }
     }
 }

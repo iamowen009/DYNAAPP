@@ -42,8 +42,16 @@ namespace DYNAMatching
 
             DTS = DBT.GetExcuteDataTableOneCon("spGetTScanLabelByCondition", condition);
 
+            DTS.Columns.Remove("Part_Id");
+            DTS.Columns.Remove("CreateBy");
+            DTS.Columns.Remove("CreateDate");
+            DTS.Columns.Remove("Log_Id");
+            DTS.Columns.Remove("CreateByName");
+
+            
             if (DTS.Rows.Count > 0)
             {
+               
                 dgView.DataSource = DTS;
             }
             else

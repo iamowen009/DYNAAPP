@@ -83,6 +83,16 @@ namespace DYNAMatching.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap BuinnovationTAB {
+            get {
+                object obj = ResourceManager.GetObject("BuinnovationTAB", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap check_37583_960_720 {
             get {
                 object obj = ResourceManager.GetObject("check-37583_960_720", resourceCulture);

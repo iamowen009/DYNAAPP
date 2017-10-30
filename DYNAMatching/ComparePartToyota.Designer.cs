@@ -49,20 +49,23 @@
             this.pbCustomerPart = new System.Windows.Forms.PictureBox();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pbScanMatchingList = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.GroupDYNA.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbCusImage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbCustomerPart)).BeginInit();
             this.toolStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbScanMatchingList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbScanMatchingList)).BeginInit();
             this.SuspendLayout();
             // 
             // GroupDYNA
@@ -284,10 +287,53 @@
             this.toolStripButton1.Text = "กลับสู่เมนูหลัก";
             this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(445, 668);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(171, 24);
+            this.label1.TabIndex = 8;
+            this.label1.Text = "Back to Main Menu";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(38, 668);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(167, 24);
+            this.label10.TabIndex = 20;
+            this.label10.Text = "Scan Matching List";
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Image = global::DYNAMatching.Properties.Resources.BuinnovationTAB;
+            this.pictureBox4.Location = new System.Drawing.Point(315, 551);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(120, 109);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox4.TabIndex = 21;
+            this.pictureBox4.TabStop = false;
+            this.pictureBox4.Visible = false;
+            this.pictureBox4.Click += new System.EventHandler(this.pictureBox4_Click);
+            // 
+            // pbScanMatchingList
+            // 
+            this.pbScanMatchingList.Image = global::DYNAMatching.Properties.Resources.list_icon_67;
+            this.pbScanMatchingList.Location = new System.Drawing.Point(61, 551);
+            this.pbScanMatchingList.Name = "pbScanMatchingList";
+            this.pbScanMatchingList.Size = new System.Drawing.Size(120, 109);
+            this.pbScanMatchingList.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbScanMatchingList.TabIndex = 19;
+            this.pbScanMatchingList.TabStop = false;
+            this.pbScanMatchingList.Click += new System.EventHandler(this.pbScanMatchingList_Click);
+            // 
             // pictureBox2
             // 
             this.pictureBox2.Image = global::DYNAMatching.Properties.Resources._2017_10_19_221600;
-            this.pictureBox2.Location = new System.Drawing.Point(470, 551);
+            this.pictureBox2.Location = new System.Drawing.Point(468, 551);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(120, 109);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -305,42 +351,26 @@
             this.pictureBox1.TabIndex = 5;
             this.pictureBox1.TabStop = false;
             // 
-            // label1
+            // label4
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(447, 668);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(171, 24);
-            this.label1.TabIndex = 8;
-            this.label1.Text = "Back to Main Menu";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(38, 668);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(167, 24);
-            this.label10.TabIndex = 20;
-            this.label10.Text = "Scan Matching List";
-            // 
-            // pbScanMatchingList
-            // 
-            this.pbScanMatchingList.Image = global::DYNAMatching.Properties.Resources.list_icon_67;
-            this.pbScanMatchingList.Location = new System.Drawing.Point(61, 551);
-            this.pbScanMatchingList.Name = "pbScanMatchingList";
-            this.pbScanMatchingList.Size = new System.Drawing.Size(120, 109);
-            this.pbScanMatchingList.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbScanMatchingList.TabIndex = 19;
-            this.pbScanMatchingList.TabStop = false;
-            this.pbScanMatchingList.Click += new System.EventHandler(this.pbScanMatchingList_Click);
+            this.label4.AutoSize = true;
+            this.label4.Enabled = false;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(350, 668);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(55, 24);
+            this.label4.TabIndex = 22;
+            this.label4.Text = "Enter";
+            this.label4.Visible = false;
+            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // ComparePartToyota
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1053, 733);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.pbScanMatchingList);
             this.Controls.Add(this.label1);
@@ -364,9 +394,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbCustomerPart)).EndInit();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbScanMatchingList)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbScanMatchingList)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -399,5 +430,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.PictureBox pbScanMatchingList;
+        private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.Label label4;
     }
 }

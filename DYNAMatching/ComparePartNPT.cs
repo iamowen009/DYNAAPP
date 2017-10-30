@@ -116,7 +116,6 @@ namespace DYNAMatching
                 //CheckNissanPartNo();
 
                 txtCusPartNo.Text = CheckFormatPartNo(txtCusPartNo.Text.Trim());
-
                 if (txtCusPartNo.Text != "")
                 {
                     DataTable DTS = new DataTable();
@@ -278,7 +277,9 @@ namespace DYNAMatching
             ClearText();
             int n = 0;
             string[] separators = { "^" };
-            string[] words = value.Split(separators, StringSplitOptions.RemoveEmptyEntries);
+            //string[] words = value.Split(separators, StringSplitOptions.RemoveEmptyEntries);
+            string[] words = value.Split('^');
+
             foreach (var word in words)
             {
                 n++;

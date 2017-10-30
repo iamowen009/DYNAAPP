@@ -147,6 +147,7 @@ namespace DYNAMatching
                         {
                             pbCusImage.Image = byteArrayToImage(DTS.Rows[0]["Picture"] as byte[]);
                         }
+
                         //txtCusRAN.Text = DTS.Rows[0]["Part_Name"].ToString();
                     }
 
@@ -357,7 +358,9 @@ namespace DYNAMatching
             ClearText();
             int n = 0;
             string[] separators = { "^" };
-            string[] words = value.Split(separators, StringSplitOptions.RemoveEmptyEntries);
+            //string[] words = value.Split(separators, StringSplitOptions.RemoveEmptyEntries);
+            string[] words = value.Split('^');
+
             foreach (var word in words)
             {
                 n++;
