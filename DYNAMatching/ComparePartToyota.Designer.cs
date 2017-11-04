@@ -170,7 +170,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.groupBox1.BackColor = System.Drawing.Color.Silver;
             this.groupBox1.Controls.Add(this.txtOrderNo);
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.pbCusImage);
@@ -291,7 +291,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(445, 668);
+            this.label1.Location = new System.Drawing.Point(882, 668);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(171, 24);
             this.label1.TabIndex = 8;
@@ -310,13 +310,12 @@
             // pictureBox4
             // 
             this.pictureBox4.Image = global::DYNAMatching.Properties.Resources.BuinnovationTAB;
-            this.pictureBox4.Location = new System.Drawing.Point(315, 551);
+            this.pictureBox4.Location = new System.Drawing.Point(468, 551);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(120, 109);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox4.TabIndex = 21;
             this.pictureBox4.TabStop = false;
-            this.pictureBox4.Visible = false;
             this.pictureBox4.Click += new System.EventHandler(this.pictureBox4_Click);
             // 
             // pbScanMatchingList
@@ -333,7 +332,7 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = global::DYNAMatching.Properties.Resources._2017_10_19_221600;
-            this.pictureBox2.Location = new System.Drawing.Point(468, 551);
+            this.pictureBox2.Location = new System.Drawing.Point(915, 551);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(120, 109);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -354,14 +353,12 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Enabled = false;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(350, 668);
+            this.label4.Location = new System.Drawing.Point(500, 668);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(55, 24);
             this.label4.TabIndex = 22;
             this.label4.Text = "Enter";
-            this.label4.Visible = false;
             this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // ComparePartToyota

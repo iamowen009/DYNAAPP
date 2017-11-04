@@ -36,6 +36,10 @@ namespace DYNAMatching
 
         private void btOk_Click(object sender, EventArgs e)
         {
+            Login_Click();
+        }
+
+        private void Login_Click() {
             DataTable DTS = new DataTable();
             DTS = DBT.GetUserInfoLogin(txtUsername.Text, txtPassword.Text);
 
@@ -48,6 +52,12 @@ namespace DYNAMatching
                     MS.UserKey = DTS.Rows[0]["key1"].ToString();
                     MS.UNIQUEID = DTS.Rows[0]["UNIQUEID"].ToString();
                     MS.UserName = txtUsername.Text.Trim();
+
+                    DataTable DTUSER = new DataTable();
+                    string Condition = " AND U_Id='" + DTS.Rows[0]["key1"].ToString() + "'";
+                    DTUSER = DBT.GetMUserByCondition(Condition);
+                    MS.FirstName = DTUSER.Rows[0]["FirstName"].ToString(); 
+
                     MS.ShowDialog();
                 }
                 else
@@ -56,12 +66,32 @@ namespace DYNAMatching
                     MessageBox.Show("Incorrect Username or Password. Please try again.", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-
         }
 
         private void btExit_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void txtUsername_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+                Login_Click();
+            }
+        }
+
+        private void txtPassword_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+                Login_Click();
+            }
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

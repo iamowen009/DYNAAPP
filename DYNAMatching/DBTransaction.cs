@@ -29,6 +29,27 @@ namespace DYNAMatching
             return ds.Tables[0];
         }
 
+        public DataTable GetMUserByCondition(string Condition)
+        {
+            DataSet ds = new DataSet();
+            using (SqlDataAdapter adapter = new SqlDataAdapter())
+            {
+                OpenConnection();
+                ds = new DataSet();
+                ds.Tables.Add("DT");
+                SqlComm.CommandType = CommandType.StoredProcedure;
+                SqlComm.CommandText = "spGetMUserByCondition";
+                SqlComm.Parameters.Clear();
+                SqlComm.Parameters.Add(new SqlParameter("@Condition", SqlDbType.VarChar));
+                SqlComm.Parameters["@Condition"].Value = Condition;
+                SqlComm.CommandTimeout = 0;
+                adapter.SelectCommand = SqlComm;
+                adapter.Fill(ds, ds.Tables["DT"].TableName);
+                CloseConnection();
+            }
+            return ds.Tables[0];
+        }
+
         public DataTable GetExcuteDataTable(string SPName)
         {
             DataSet ds = new DataSet();
@@ -70,7 +91,7 @@ namespace DYNAMatching
             return ds.Tables[0];
         }
 
-        public bool InsertTScanLabel(string @Customer,string @Part_Id,string @Part_No,string @Part_Name, Decimal @Pack_Qty,string @Rank_No,string @Issue_No,string @Serial_No,string @Order_No,string @CreateBy,string @UNIQUEID)
+        public bool InsertTScanLabel(string @Customer,string @Part_Id,string @Part_No,string @Part_Name, Decimal @Pack_Qty,string @Rank_No,string @Issue_No,string @Serial_No,string @Order_No,string @CreateBy,string @UNIQUEID,string RanNo = "")
         {
             bool success = true;
             int rownum = 0;
@@ -93,6 +114,9 @@ namespace DYNAMatching
                 SqlComm.Parameters.Add(new SqlParameter("@Order_No", SqlDbType.VarChar));
                 SqlComm.Parameters.Add(new SqlParameter("@CreateBy", SqlDbType.VarChar));
                 SqlComm.Parameters.Add(new SqlParameter("@UNIQUEID", SqlDbType.VarChar));
+                SqlComm.Parameters.Add(new SqlParameter("@RanNo", SqlDbType.VarChar));
+
+                
 
                 SqlComm.Parameters["@Customer"].Value = @Customer;
                 SqlComm.Parameters["@Part_Id"].Value = @Part_Id;
@@ -105,6 +129,7 @@ namespace DYNAMatching
                 SqlComm.Parameters["@Order_No"].Value = @Order_No;
                 SqlComm.Parameters["@CreateBy"].Value = @CreateBy;
                 SqlComm.Parameters["@UNIQUEID"].Value = @UNIQUEID;
+                SqlComm.Parameters["@RanNo"].Value = @RanNo;
 
                 SqlComm.CommandTimeout = 0;
                 rownum = SqlComm.ExecuteNonQuery();

@@ -112,29 +112,39 @@ namespace DYNAMatching
         {
             if ((e.KeyChar == (char)Keys.Enter) && (txtCusPartNo.Text.Trim() != ""))
             {
-                CheckExitCode(txtCusPartNo.Text);
-                //CheckNissanPartNo();
-
-                txtCusPartNo.Text = CheckFormatPartNo(txtCusPartNo.Text.Trim());
-                if (txtCusPartNo.Text != "")
+                if (txtCusPartNo.Text == "@BUINNOVATIONTAB")
                 {
-                    DataTable DTS = new DataTable();
-                    string condition = " and Part_no = '" + txtCusPartNo.Text.Trim() + "'";
-                    DTS = DBT.GetExcuteDataTableOneCon("spGetMPartByConditionForApp", condition);
-
-                    if (DTS.Rows.Count > 0)
-                    {
-                        if ((DTS.Rows[0]["Picture"] != null) || (DTS.Rows[0]["Picture"].ToString().Trim() != ""))
-                        {
-                            pbCusImage.Image = byteArrayToImage(DTS.Rows[0]["Picture"] as byte[]);
-                        }
-                        //txtCusRAN.Text = DTS.Rows[0]["Part_Name"].ToString();
-                    }
-
+                    txtCusPartNo.Text = "";
+                    MatchingResult("Error");
                     txtCusQTY.Focus();
                 }
+                else
+                {
+                    CheckExitCode(txtCusPartNo.Text);
+                    //CheckNissanPartNo();
 
+                    txtCusPartNo.Text = CheckFormatPartNo(txtCusPartNo.Text.Trim());
+                    if (txtCusPartNo.Text != "")
+                    {
+                        DataTable DTS = new DataTable();
+                        string condition = " and Part_no = '" + txtCusPartNo.Text.Trim() + "'";
+                        DTS = DBT.GetExcuteDataTableOneCon("spGetMPartByConditionForApp", condition);
+
+                        if (DTS.Rows.Count > 0)
+                        {
+                            if ((DTS.Rows[0]["Picture"] != null) || (DTS.Rows[0]["Picture"].ToString().Trim() != ""))
+                            {
+                                pbCusImage.Image = byteArrayToImage(DTS.Rows[0]["Picture"] as byte[]);
+                            }
+                            //txtCusRAN.Text = DTS.Rows[0]["Part_Name"].ToString();
+                        }
+
+                        txtCusQTY.Focus();
+                    }
+                }
+               
             }
+
         }
 
         public void SpilitStringBlank(string value)
@@ -181,6 +191,7 @@ namespace DYNAMatching
             if (Values.Substring(0, 1) == "P")
             {
                 xReturn = Values.Substring(1, Values.Length - 1);
+                xReturn = xReturn.Replace(" ", "");
             }
             else
             {
@@ -246,14 +257,21 @@ namespace DYNAMatching
         {
             if (e.KeyChar == (char)Keys.Enter)
             {
-                txtCusQTY.Text = CheckFormatSNPQTY(txtCusQTY.Text.Trim());
-                CheckExitCode(txtCusQTY.Text);
-
-                if (txtCusQTY.Text != "")
+                if (txtCusQTY.Text == "@BUINNOVATIONTAB")
                 {
+                    txtCusQTY.Text = "";
                     txtSerialNo.Focus();
                 }
+                else
+                {
+                    txtCusQTY.Text = CheckFormatSNPQTY(txtCusQTY.Text.Trim());
+                    CheckExitCode(txtCusQTY.Text);
 
+                    if (txtCusQTY.Text != "")
+                    {
+                        txtSerialNo.Focus();
+                    }
+                }
             }
         }
 
@@ -261,14 +279,21 @@ namespace DYNAMatching
         {
             if (e.KeyChar == (char)Keys.Enter)
             {
-                txtSerialNo.Text = CheckFormatSerialNo(txtSerialNo.Text.Trim());
-                CheckExitCode(txtSerialNo.Text);
-
-                if (txtSerialNo.Text != "")
+                if (txtSerialNo.Text == "@BUINNOVATIONTAB")
                 {
+                    txtSerialNo.Text = "";
                     txtDYNAPartNo.Focus();
                 }
+                else
+                {
+                    txtSerialNo.Text = CheckFormatSerialNo(txtSerialNo.Text.Trim());
+                    CheckExitCode(txtSerialNo.Text);
 
+                    if (txtSerialNo.Text != "")
+                    {
+                        txtDYNAPartNo.Focus();
+                    }
+                }
             }
         }
 
@@ -329,10 +354,20 @@ namespace DYNAMatching
 
         private void txtDYNAPartNo_KeyPress(object sender, KeyPressEventArgs e)
         {
+            
+
             if ((e.KeyChar == (char)Keys.Enter) && (txtDYNAPartNo.Text != ""))
             {
-                CheckExitCode(txtDYNAPartNo.Text);
-                CheckDYNAPartNo(txtDYNAPartNo.Text);
+                if (txtDYNAPartNo.Text == "@BUINNOVATIONTAB")
+                {
+                    txtDYNAPartNo.Text = "";
+                    txtCusPartNo.Focus();
+                }
+                else
+                {
+                    CheckExitCode(txtDYNAPartNo.Text);
+                    CheckDYNAPartNo(txtDYNAPartNo.Text);
+                }
             }
         }
 
@@ -349,9 +384,51 @@ namespace DYNAMatching
 
             if (txtDYNAPartNo.Text.Trim() != "")
             {
-                CheckMatching();
+                if (CheckDuplicate())
+                {
+                    CheckMatching();
+                }
+                else
+                {
+                    int timeAutoClose = int.Parse(ConfigurationManager.AppSettings["TimeAutoClose"]);
+                    AutoClosingMessageBox.Show("Serial: " + txtSerialNo.Text + " มีการ Scan ไปแล้ว", "BU System", timeAutoClose * 9999);
+                    txtSerialNo.Text = "";
+                    txtDYNAPartNo.Text = "";
+                    txtSerialNo.Focus();
+                    lbDYNAQTY.Text = "";
+                    lbDYNALot.Text = "";
+                }
             }
+        }
 
+        private bool CheckDuplicate()
+        {
+            bool isCheck = true;
+            string UNIQUECondition = " TimeToScan = '" + UNIQUEID + "' ";
+            string condition = " and " + UNIQUECondition + getCustomerCondition() + getSerialCondition();
+            DataTable DTS = new DataTable();
+
+            DTS = DBT.GetExcuteDataTableOneCon("spGetTScanLabelByCondition", condition);
+
+            if (DTS.Rows.Count > 0)
+                isCheck = false;
+
+            return isCheck;
+        }
+
+        private string getCustomerCondition()
+        {
+            string Condition = "'NISSAN NPT'";
+            Condition = " And (TScan.Customer in (" + Condition + ")) ";
+            return Condition;
+        }
+
+
+        private string getSerialCondition()
+        {
+            string Condition = " And TScan.Serial_No = '" + txtSerialNo.Text.Trim() + "'";
+
+            return Condition;
         }
 
         public void CheckMatching()
@@ -418,7 +495,6 @@ namespace DYNAMatching
             lbDYNAQTY.Text = "";
 
             txtCusPartNo.Focus();
-
         }
 
         private void ComparePartNPT_Load(object sender, EventArgs e)
@@ -498,6 +574,11 @@ namespace DYNAMatching
         private void pictureBox2_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void pictureBox4_Click(object sender, EventArgs e)
+        {
+            SendKeys.Send("{TAB}");
         }
     }
 }

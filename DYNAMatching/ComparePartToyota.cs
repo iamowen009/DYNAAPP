@@ -33,6 +33,8 @@ namespace DYNAMatching
         public string sysIssueNo = "";
         public string sysSerialNo = "";
         public string sysOrderNo = "";
+
+        public string gPARTNO = "";
         DBTransaction DBT = new DBTransaction();
 
         public ComparePartToyota()
@@ -54,6 +56,8 @@ namespace DYNAMatching
         {
             if ((e.KeyChar == (char)Keys.Enter) && (txtCusPartNo.Text.Trim() != ""))
             {
+                gPARTNO = txtCusPartNo.Text;
+
                 Control control = (Control)sender;
                 if (control.Text == "@BUINNOVATIONTAB")
                 {
@@ -74,12 +78,15 @@ namespace DYNAMatching
 
                     if (DTS.Rows.Count > 0)
                     {
-                        if ((DTS.Rows[0]["Picture"] != null) || (DTS.Rows[0]["Picture"].ToString().Trim() != ""))
+                        //if ((DTS.Rows[0]["Picture"] != null) || (DTS.Rows[0]["Picture"].ToString().Trim() != ""))
+                        if (DTS.Rows[0]["Picture"].ToString().Trim() != "")
                         {
                             byte[] temp = (byte[])DTS.Rows[0]["Picture"];
                             if (Convert.ToBase64String(temp) != "")
                                 pbCusImage.Image = byteArrayToImage(DTS.Rows[0]["Picture"] as byte[]);
                         }
+
+                        if(gPARTNO.Length < 70)
                         txtCusQTY.Text = DTS.Rows[0]["Qty"].ToString();
                     }
 
@@ -190,6 +197,7 @@ namespace DYNAMatching
                         break;
                     case 4:
                         sysQTY = word;
+                        txtCusQTY.Text = word;
                         break;
                 }
 
@@ -217,8 +225,8 @@ namespace DYNAMatching
         private string CheckFormatPartNo(string Values)
         {
             string xReturn = "";
-            xReturn = Values.Replace("88X","");
-            xReturn = xReturn.Substring(0,13);
+            xReturn = Values.Replace("888X","");
+            xReturn = xReturn.Substring(0,12);
             return xReturn;
         }
 
@@ -233,8 +241,16 @@ namespace DYNAMatching
         {
             if (e.KeyChar == (char)Keys.Enter)
             {
-                CheckExitCode(txtCusQTY.Text.Trim());
-                txtOrderNo.Focus();
+                if (txtCusQTY.Text == "@BUINNOVATIONTAB")
+                {
+                    txtCusQTY.Text = "";
+                    txtOrderNo.Focus();
+                }
+                else
+                {
+                    CheckExitCode(txtCusQTY.Text.Trim());
+                    txtOrderNo.Focus();
+                }
             }
         }
 
@@ -270,7 +286,7 @@ namespace DYNAMatching
                         sysLABLENO = word;
                         break;
                     case 3:
-                        sysPARTNO = word;
+                        sysPARTNO = word.Replace("OEM","");
                         break;
                     case 4:
                         sysPARTNAME = word;
@@ -283,6 +299,7 @@ namespace DYNAMatching
                         break;
                     case 7:
                         sysQTY = word;
+                        txtCusQTY.Text = word;
                         break;
                     case 8:
                         sysLOT = word;
@@ -308,8 +325,16 @@ namespace DYNAMatching
         {
             if ((e.KeyChar == (char)Keys.Enter) && (txtDYNAPartNo.Text != ""))
             {
-                CheckExitCode(txtDYNAPartNo.Text.Trim());
-                CheckDYNAPartNo(txtDYNAPartNo.Text);
+                if (txtDYNAPartNo.Text == "@BUINNOVATIONTAB")
+                {
+                    txtDYNAPartNo.Text = "";
+                    txtCusPartNo.Focus();
+                }
+                else
+                {
+                    CheckExitCode(txtDYNAPartNo.Text.Trim());
+                    CheckDYNAPartNo(txtDYNAPartNo.Text);
+                }
             }
         }
 

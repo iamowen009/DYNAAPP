@@ -9,6 +9,7 @@ namespace DYNAMatching
         public string UserKey;
         public string UserName;
         public string UNIQUEID;
+        public string FirstName;
 
         public MainScreen()
         {
@@ -81,7 +82,8 @@ namespace DYNAMatching
 
         private void MainScreen_Load(object sender, EventArgs e)
         {
-            tLBUsername.Text = UserName;
+            //tLBUsername.Text = UserName;
+            tLBUsername.Text = FirstName;
             tslbUniqueID.Text = UNIQUEID;
             txtCustomer.Text = "";
             txtCustomer.Focus();

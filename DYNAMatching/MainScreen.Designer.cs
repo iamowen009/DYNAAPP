@@ -70,7 +70,7 @@
             // 
             // btNissanNPT
             // 
-            this.btNissanNPT.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btNissanNPT.BackColor = System.Drawing.Color.LimeGreen;
             this.btNissanNPT.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btNissanNPT.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btNissanNPT.Location = new System.Drawing.Point(379, 382);
@@ -98,7 +98,7 @@
             // 
             // btNissanNMT
             // 
-            this.btNissanNMT.BackColor = System.Drawing.Color.Lime;
+            this.btNissanNMT.BackColor = System.Drawing.Color.DarkOrange;
             this.btNissanNMT.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btNissanNMT.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btNissanNMT.Location = new System.Drawing.Point(28, 382);

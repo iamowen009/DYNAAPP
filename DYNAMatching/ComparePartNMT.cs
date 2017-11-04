@@ -133,25 +133,35 @@ namespace DYNAMatching
                 CheckExitCode(txtCusPartNo.Text);
                 //CheckNissanPartNo();
 
-                txtCusPartNo.Text = CheckFormatPartNo(txtCusPartNo.Text.Trim());
 
                 if (txtCusPartNo.Text != "")
                 {
-                    DataTable DTS = new DataTable();
-                    string condition = " and Part_no = '" + txtCusPartNo.Text.Trim() + "'";
-                    DTS = DBT.GetExcuteDataTableOneCon("spGetMPartByConditionForApp", condition);
-
-                    if (DTS.Rows.Count > 0)
+                    if (txtCusPartNo.Text == "@BUINNOVATIONTAB")
                     {
-                        if ((DTS.Rows[0]["Picture"] != null) || (DTS.Rows[0]["Picture"].ToString().Trim() != ""))
+                        txtCusPartNo.Text = "";
+                        MatchingResult("Error");
+                        txtCusQTY.Focus();
+                    }
+                    else
+                    {
+                        txtCusPartNo.Text = CheckFormatPartNo(txtCusPartNo.Text.Trim());
+
+                        DataTable DTS = new DataTable();
+                        string condition = " and Part_no = '" + txtCusPartNo.Text.Trim() + "'";
+                        DTS = DBT.GetExcuteDataTableOneCon("spGetMPartByConditionForApp", condition);
+
+                        if (DTS.Rows.Count > 0)
                         {
-                            pbCusImage.Image = byteArrayToImage(DTS.Rows[0]["Picture"] as byte[]);
+                            if ((DTS.Rows[0]["Picture"] != null) || (DTS.Rows[0]["Picture"].ToString().Trim() != ""))
+                            {
+                                pbCusImage.Image = byteArrayToImage(DTS.Rows[0]["Picture"] as byte[]);
+                            }
+
+                            //txtCusRAN.Text = DTS.Rows[0]["Part_Name"].ToString();
                         }
 
-                        //txtCusRAN.Text = DTS.Rows[0]["Part_Name"].ToString();
+                        txtCusQTY.Focus();
                     }
-
-                    txtCusQTY.Focus();
                 }
 
             }
@@ -225,6 +235,7 @@ namespace DYNAMatching
             if (Values.Substring(0, 1) == "P")
             {
                 xReturn = Values.Substring(1, Values.Length - 1);
+                xReturn = xReturn.Replace(" ", "");
             }
             else
             {
@@ -312,14 +323,21 @@ namespace DYNAMatching
         {
             if (e.KeyChar == (char)Keys.Enter)
             {
-                CheckExitCode(txtCusQTY.Text);
-                txtCusQTY.Text = CheckFormatSNPQTY(txtCusQTY.Text.Trim());
-
-                if (txtCusQTY.Text != "")
+                if (txtCusQTY.Text == "@BUINNOVATIONTAB")
                 {
+                    txtCusQTY.Text = "";
                     txtIssueNo.Focus();
                 }
+                else
+                {
+                    CheckExitCode(txtCusQTY.Text);
+                    txtCusQTY.Text = CheckFormatSNPQTY(txtCusQTY.Text.Trim());
 
+                    if (txtCusQTY.Text != "")
+                    {
+                        txtIssueNo.Focus();
+                    }
+                }
             }
         }
 
@@ -327,12 +345,20 @@ namespace DYNAMatching
         {
             if (e.KeyChar == (char)Keys.Enter)
             {
-                CheckExitCode(txtIssueNo.Text);
-                txtIssueNo.Text = CheckFormatSerialNo(txtIssueNo.Text.Trim());
-
-                if (txtIssueNo.Text != "")
+                if (txtIssueNo.Text == "@BUINNOVATIONTAB")
                 {
+                    txtIssueNo.Text = "";
                     txtRANNO.Focus();
+                }
+                else
+                {
+                    CheckExitCode(txtIssueNo.Text);
+                    txtIssueNo.Text = CheckFormatSerialNo(txtIssueNo.Text.Trim());
+
+                    if (txtIssueNo.Text != "")
+                    {
+                        txtRANNO.Focus();
+                    }
                 }
 
             }
@@ -342,14 +368,21 @@ namespace DYNAMatching
         {
             if (e.KeyChar == (char)Keys.Enter)
             {
-                CheckExitCode(txtRANNO.Text);
-                txtRANNO.Text = CheckFormatRANNo(txtRANNO.Text.Trim());
-
-                if (txtRANNO.Text != "")
+                if (txtRANNO.Text == "@BUINNOVATIONTAB")
                 {
+                    txtRANNO.Text = "";
                     txtDYNAPartNo.Focus();
                 }
+                else
+                {
+                    CheckExitCode(txtRANNO.Text);
+                    txtRANNO.Text = CheckFormatRANNo(txtRANNO.Text.Trim());
 
+                    if (txtRANNO.Text != "")
+                    {
+                        txtDYNAPartNo.Focus();
+                    }
+                }
             }
         }
 
@@ -412,8 +445,16 @@ namespace DYNAMatching
         {
             if ((e.KeyChar == (char)Keys.Enter) && (txtDYNAPartNo.Text != ""))
             {
-                CheckExitCode(txtDYNAPartNo.Text);
-                CheckDYNAPartNo(txtDYNAPartNo.Text);
+                if (txtDYNAPartNo.Text == "@BUINNOVATIONTAB")
+                {
+                    txtDYNAPartNo.Text = "";
+                    txtCusPartNo.Focus();
+                }
+                else
+                {
+                    CheckExitCode(txtDYNAPartNo.Text);
+                    CheckDYNAPartNo(txtDYNAPartNo.Text);
+                }
             }
         }
 
@@ -429,10 +470,51 @@ namespace DYNAMatching
 
             if (txtDYNAPartNo.Text.Trim() != "")
             {
-                CheckMatching();
+                if (CheckDuplicate())
+                {
+                    CheckMatching();
+                }
+                else
+                {
+                    int timeAutoClose = int.Parse(ConfigurationManager.AppSettings["TimeAutoClose"]);
+                    AutoClosingMessageBox.Show("Issure No: " + txtIssueNo.Text + " มีการ Scan ไปแล้ว", "BU System", timeAutoClose * 9999);
+                    txtRANNO.Text = "";
+                    txtDYNAPartNo.Text = "";
+                    txtIssueNo.Focus();
+                }
             }
-
         }
+
+        private bool CheckDuplicate()
+        {
+            bool isCheck = true;
+            string UNIQUECondition = " TimeToScan = '" + UNIQUEID + "' ";
+            string condition = " and " + UNIQUECondition + getCustomerCondition() + getIssueCondition() ;
+            DataTable DTS = new DataTable();
+            
+            DTS = DBT.GetExcuteDataTableOneCon("spGetTScanLabelByCondition", condition);
+
+            if (DTS.Rows.Count > 0)
+                isCheck = false;
+
+            return isCheck;
+        }
+
+        private string getCustomerCondition()
+        {
+            string Condition = "'NISSAN NMT'";
+            Condition = " And (TScan.Customer in (" + Condition + ")) ";
+            return Condition;
+        }
+
+        private string getIssueCondition()
+        {
+            string Condition = " And TScan.Issue_No = '" + txtIssueNo.Text.Trim() +"'";
+         
+            return Condition;
+        }
+
+
 
         public void CheckMatching()
         {
@@ -462,7 +544,7 @@ namespace DYNAMatching
                 sysIssueNo = txtIssueNo.Text.Trim();
                 sysRANNO = txtRANNO.Text.Trim();
 
-                DBT.InsertTScanLabel(sysCUSTOMER, sysPartID, sysPARTNO, sysPARTNAME, QTY, sysRANNO, sysIssueNo, sysSerialNo, sysOrderNo, userkey , UNIQUEID);
+                DBT.InsertTScanLabel(sysCUSTOMER, sysPartID, sysPARTNO, sysPARTNAME, QTY, sysRANNO, sysIssueNo, sysSerialNo, sysOrderNo, userkey , UNIQUEID, sysRANNO);
                 MatchingComplete MC = new MatchingComplete();
                 MC.PartID = sysPartID;
                 MC.MCPartno = sysPARTNO;
@@ -540,6 +622,11 @@ namespace DYNAMatching
         private void pictureBox2_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void pictureBox4_Click(object sender, EventArgs e)
+        {
+            SendKeys.Send("{TAB}");
         }
     }
 }

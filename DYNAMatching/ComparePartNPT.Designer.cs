@@ -55,6 +55,8 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label10 = new System.Windows.Forms.Label();
             this.pbScanMatchingList = new System.Windows.Forms.PictureBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.GroupDYNA.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -64,6 +66,7 @@
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbScanMatchingList)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -178,7 +181,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.groupBox1.BackColor = System.Drawing.Color.LimeGreen;
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.txtSerialNo);
             this.groupBox1.Controls.Add(this.label9);
@@ -310,7 +313,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(435, 667);
+            this.label1.Location = new System.Drawing.Point(873, 667);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(171, 24);
             this.label1.TabIndex = 14;
@@ -319,7 +322,7 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = global::DYNAMatching.Properties.Resources._2017_10_19_221600;
-            this.pictureBox2.Location = new System.Drawing.Point(458, 550);
+            this.pictureBox2.Location = new System.Drawing.Point(906, 550);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(120, 109);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -348,11 +351,34 @@
             this.pbScanMatchingList.TabStop = false;
             this.pbScanMatchingList.Click += new System.EventHandler(this.pbScanMatchingList_Click);
             // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(491, 667);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(55, 24);
+            this.label11.TabIndex = 26;
+            this.label11.Text = "Enter";
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Image = global::DYNAMatching.Properties.Resources.BuinnovationTAB;
+            this.pictureBox4.Location = new System.Drawing.Point(459, 550);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(120, 109);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox4.TabIndex = 25;
+            this.pictureBox4.TabStop = false;
+            this.pictureBox4.Click += new System.EventHandler(this.pictureBox4_Click);
+            // 
             // ComparePartNPT
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1044, 719);
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.pbScanMatchingList);
             this.Controls.Add(this.label1);
@@ -378,6 +404,7 @@
             this.toolStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbScanMatchingList)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -411,5 +438,7 @@
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.PictureBox pbScanMatchingList;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.PictureBox pictureBox4;
     }
 }

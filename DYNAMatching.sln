@@ -5,6 +5,8 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DYNAMatching", "DYNAMatching\DYNAMatching.csproj", "{6AB03479-3891-484A-B939-79FEAC237FCB}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup", "..\DYNAAPP_Setup\Setup\Setup.vdproj", "{A6A1983A-CE40-4023-8833-6752A96B44AD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,8 @@ Global
 		{6AB03479-3891-484A-B939-79FEAC237FCB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6AB03479-3891-484A-B939-79FEAC237FCB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6AB03479-3891-484A-B939-79FEAC237FCB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A6A1983A-CE40-4023-8833-6752A96B44AD}.Debug|Any CPU.ActiveCfg = Debug
+		{A6A1983A-CE40-4023-8833-6752A96B44AD}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -29,10 +29,6 @@
         private void InitializeComponent()
         {
             this.dgView = new System.Windows.Forms.DataGridView();
-            this.No = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PartNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Pack_Qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label3 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.btSearch = new System.Windows.Forms.Button();
@@ -42,6 +38,18 @@
             this.label4 = new System.Windows.Forms.Label();
             this.txtCustomer = new System.Windows.Forms.TextBox();
             this.lbUniqueID = new System.Windows.Forms.Label();
+            this.No = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PartNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Pack_Qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Lot_No = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Rank_No = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Serial_No = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Order_No = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RanNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CreateBy = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
@@ -54,46 +62,22 @@
             this.dgView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.No,
-            this.Column1,
+            this.Column2,
+            this.Column3,
             this.PartNo,
-            this.Pack_Qty});
+            this.Pack_Qty,
+            this.Lot_No,
+            this.Rank_No,
+            this.Column6,
+            this.Serial_No,
+            this.Order_No,
+            this.RanNo,
+            this.CreateBy});
             this.dgView.Location = new System.Drawing.Point(43, 94);
             this.dgView.Name = "dgView";
             this.dgView.ReadOnly = true;
-            this.dgView.Size = new System.Drawing.Size(819, 442);
+            this.dgView.Size = new System.Drawing.Size(1497, 442);
             this.dgView.TabIndex = 4;
-            // 
-            // No
-            // 
-            this.No.DataPropertyName = "No";
-            this.No.HeaderText = "No";
-            this.No.Name = "No";
-            this.No.ReadOnly = true;
-            this.No.Width = 50;
-            // 
-            // Column1
-            // 
-            this.Column1.DataPropertyName = "Customer";
-            this.Column1.HeaderText = "Customer";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            this.Column1.Width = 150;
-            // 
-            // PartNo
-            // 
-            this.PartNo.DataPropertyName = "Part_No";
-            this.PartNo.HeaderText = "PartNo";
-            this.PartNo.Name = "PartNo";
-            this.PartNo.ReadOnly = true;
-            this.PartNo.Width = 200;
-            // 
-            // Pack_Qty
-            // 
-            this.Pack_Qty.DataPropertyName = "Pack_Qty";
-            this.Pack_Qty.HeaderText = "SNP/Quantity";
-            this.Pack_Qty.Name = "Pack_Qty";
-            this.Pack_Qty.ReadOnly = true;
-            this.Pack_Qty.Width = 150;
             // 
             // label3
             // 
@@ -121,7 +105,7 @@
             this.btSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.btSearch.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btSearch.Location = new System.Drawing.Point(651, 25);
+            this.btSearch.Location = new System.Drawing.Point(718, 25);
             this.btSearch.Name = "btSearch";
             this.btSearch.Size = new System.Drawing.Size(216, 49);
             this.btSearch.TabIndex = 19;
@@ -198,12 +182,110 @@
             this.lbUniqueID.Size = new System.Drawing.Size(43, 16);
             this.lbUniqueID.TabIndex = 25;
             this.lbUniqueID.Text = "Filter :";
+            this.lbUniqueID.Visible = false;
+            // 
+            // No
+            // 
+            this.No.DataPropertyName = "No";
+            this.No.HeaderText = "No";
+            this.No.Name = "No";
+            this.No.ReadOnly = true;
+            this.No.Width = 50;
+            // 
+            // Column2
+            // 
+            this.Column2.DataPropertyName = "CreateDate";
+            this.Column2.HeaderText = "วัน/เดือน/ปี";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            this.Column2.Width = 120;
+            // 
+            // Column3
+            // 
+            this.Column3.DataPropertyName = "Customer";
+            this.Column3.HeaderText = "Customer";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            this.Column3.Width = 150;
+            // 
+            // PartNo
+            // 
+            this.PartNo.DataPropertyName = "Part_No";
+            this.PartNo.HeaderText = "Part No.";
+            this.PartNo.Name = "PartNo";
+            this.PartNo.ReadOnly = true;
+            this.PartNo.Width = 200;
+            // 
+            // Pack_Qty
+            // 
+            this.Pack_Qty.DataPropertyName = "Pack_Qty";
+            this.Pack_Qty.HeaderText = "QTY.(Pcs.)";
+            this.Pack_Qty.Name = "Pack_Qty";
+            this.Pack_Qty.ReadOnly = true;
+            this.Pack_Qty.Width = 120;
+            // 
+            // Lot_No
+            // 
+            this.Lot_No.DataPropertyName = "Lot_No";
+            this.Lot_No.HeaderText = "Lot No.";
+            this.Lot_No.Name = "Lot_No";
+            this.Lot_No.ReadOnly = true;
+            this.Lot_No.Width = 200;
+            // 
+            // Rank_No
+            // 
+            this.Rank_No.DataPropertyName = "Rank_No";
+            this.Rank_No.HeaderText = "Color/Rank";
+            this.Rank_No.Name = "Rank_No";
+            this.Rank_No.ReadOnly = true;
+            this.Rank_No.Width = 200;
+            // 
+            // Column6
+            // 
+            this.Column6.DataPropertyName = "Issue_No";
+            this.Column6.HeaderText = "Issue No.";
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
+            this.Column6.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.Column6.Width = 250;
+            // 
+            // Serial_No
+            // 
+            this.Serial_No.DataPropertyName = "Serial_No";
+            this.Serial_No.HeaderText = "Serial No.";
+            this.Serial_No.Name = "Serial_No";
+            this.Serial_No.ReadOnly = true;
+            this.Serial_No.Width = 200;
+            // 
+            // Order_No
+            // 
+            this.Order_No.DataPropertyName = "Order_No";
+            this.Order_No.HeaderText = "Order No.";
+            this.Order_No.Name = "Order_No";
+            this.Order_No.ReadOnly = true;
+            this.Order_No.Width = 200;
+            // 
+            // RanNo
+            // 
+            this.RanNo.DataPropertyName = "RanNo";
+            this.RanNo.HeaderText = "Ran No.";
+            this.RanNo.Name = "RanNo";
+            this.RanNo.ReadOnly = true;
+            this.RanNo.Width = 200;
+            // 
+            // CreateBy
+            // 
+            this.CreateBy.DataPropertyName = "CreateByName";
+            this.CreateBy.HeaderText = "Scan By";
+            this.CreateBy.Name = "CreateBy";
+            this.CreateBy.ReadOnly = true;
+            this.CreateBy.Width = 200;
             // 
             // ScanMatchingList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(946, 733);
+            this.ClientSize = new System.Drawing.Size(1552, 733);
             this.Controls.Add(this.lbUniqueID);
             this.Controls.Add(this.txtCustomer);
             this.Controls.Add(this.label4);
@@ -238,11 +320,19 @@
         private System.Windows.Forms.CheckBox ckNissanNPT;
         private System.Windows.Forms.CheckBox ckToyota;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn No;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PartNo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Pack_Qty;
         private System.Windows.Forms.TextBox txtCustomer;
         private System.Windows.Forms.Label lbUniqueID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn No;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PartNo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Pack_Qty;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Lot_No;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Rank_No;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Serial_No;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Order_No;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RanNo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CreateBy;
     }
 }
