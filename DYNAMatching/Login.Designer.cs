@@ -126,8 +126,7 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(60, 13);
             this.label3.TabIndex = 7;
-            this.label3.Text = "Version 1.0";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
+            this.label3.Text = "Version 1.1";
             // 
             // Login
             // 

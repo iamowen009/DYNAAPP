@@ -152,12 +152,18 @@ namespace DYNAMatching
 
                         if (DTS.Rows.Count > 0)
                         {
-                            if ((DTS.Rows[0]["Picture"] != null) || (DTS.Rows[0]["Picture"].ToString().Trim() != ""))
+                            //if ((DTS.Rows[0]["Picture"] != null) || (DTS.Rows[0]["Picture"].ToString().Trim() != ""))
+                            //{
+                            //    pbCusImage.Image = byteArrayToImage(DTS.Rows[0]["Picture"] as byte[]);
+                            //}
+
+                            if (DTS.Rows[0]["Picture"].ToString().Trim() != "")
                             {
-                                pbCusImage.Image = byteArrayToImage(DTS.Rows[0]["Picture"] as byte[]);
+                                byte[] temp = (byte[])DTS.Rows[0]["Picture"];
+                                if (Convert.ToBase64String(temp) != "")
+                                    pbCusImage.Image = byteArrayToImage(DTS.Rows[0]["Picture"] as byte[]);
                             }
 
-                            //txtCusRAN.Text = DTS.Rows[0]["Part_Name"].ToString();
                         }
 
                         txtCusQTY.Focus();
