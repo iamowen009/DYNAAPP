@@ -225,7 +225,15 @@ namespace DYNAMatching
         private string CheckFormatPartNo(string Values)
         {
             string xReturn = "";
-            xReturn = Values.Replace("888X","");
+            char ch = Values[3];
+
+            //xReturn = Values.Replace("888X","");
+            if (Char.IsDigit(ch)) {
+            }
+            else {
+                xReturn = Values.Substring(4);
+            }
+
             xReturn = xReturn.Substring(0,12);
             return xReturn;
         }
