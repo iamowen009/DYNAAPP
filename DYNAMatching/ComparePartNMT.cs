@@ -33,6 +33,7 @@ namespace DYNAMatching
         public string sysIssueNo = "";
         public string sysSerialNo = "";
         public string sysOrderNo = "";
+        public string sysLable_Id = "";
         DBTransaction DBT = new DBTransaction();
 
         public ComparePartNMT()
@@ -116,6 +117,7 @@ namespace DYNAMatching
             txtRANNO.Text = "";
             txtDYNAPartNo.Text = "";
             lbDYNAQTY.Text = "";
+            sysLable_Id = "";
 
             txtCusPartNo.Focus();
 
@@ -436,6 +438,10 @@ namespace DYNAMatching
                     case 10:
                         sysPartID = word;
                         break;
+                    case 11:
+                        sysLable_Id = word;
+                        break;
+
                 }
             }
 
@@ -550,7 +556,7 @@ namespace DYNAMatching
                 sysIssueNo = txtIssueNo.Text.Trim();
                 sysRANNO = txtRANNO.Text.Trim();
 
-                DBT.InsertTScanLabel(sysCUSTOMER, sysPartID, sysPARTNO, sysPARTNAME, QTY, sysRANNO, sysIssueNo, sysSerialNo, sysOrderNo, userkey , UNIQUEID, sysRANNO);
+                DBT.InsertTScanLabel(sysCUSTOMER, sysPartID, sysPARTNO, sysPARTNAME, QTY, sysRANNO, sysIssueNo, sysSerialNo, sysOrderNo, userkey , UNIQUEID, sysRANNO, sysLable_Id);
                 MatchingComplete MC = new MatchingComplete();
                 MC.PartID = sysPartID;
                 MC.MCPartno = sysPARTNO;

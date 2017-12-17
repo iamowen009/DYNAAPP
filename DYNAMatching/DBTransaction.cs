@@ -91,7 +91,7 @@ namespace DYNAMatching
             return ds.Tables[0];
         }
 
-        public bool InsertTScanLabel(string @Customer,string @Part_Id,string @Part_No,string @Part_Name, Decimal @Pack_Qty,string @Rank_No,string @Issue_No,string @Serial_No,string @Order_No,string @CreateBy,string @UNIQUEID,string RanNo = "")
+        public bool InsertTScanLabel(string @Customer,string @Part_Id,string @Part_No,string @Part_Name, Decimal @Pack_Qty,string @Rank_No,string @Issue_No,string @Serial_No,string @Order_No,string @CreateBy,string @UNIQUEID,string RanNo = "",string @Label_Id ="")
         {
             bool success = true;
             int rownum = 0;
@@ -115,8 +115,11 @@ namespace DYNAMatching
                 SqlComm.Parameters.Add(new SqlParameter("@CreateBy", SqlDbType.VarChar));
                 SqlComm.Parameters.Add(new SqlParameter("@UNIQUEID", SqlDbType.VarChar));
                 SqlComm.Parameters.Add(new SqlParameter("@RanNo", SqlDbType.VarChar));
-
+                SqlComm.Parameters.Add(new SqlParameter("@Label_Id", SqlDbType.VarChar));
                 
+
+
+
 
                 SqlComm.Parameters["@Customer"].Value = @Customer;
                 SqlComm.Parameters["@Part_Id"].Value = @Part_Id;
@@ -130,6 +133,7 @@ namespace DYNAMatching
                 SqlComm.Parameters["@CreateBy"].Value = @CreateBy;
                 SqlComm.Parameters["@UNIQUEID"].Value = @UNIQUEID;
                 SqlComm.Parameters["@RanNo"].Value = @RanNo;
+                SqlComm.Parameters["@Label_Id"].Value = @Label_Id;
 
                 SqlComm.CommandTimeout = 0;
                 rownum = SqlComm.ExecuteNonQuery();

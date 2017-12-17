@@ -38,9 +38,12 @@
             this.label4 = new System.Windows.Forms.Label();
             this.txtCustomer = new System.Windows.Forms.TextBox();
             this.lbUniqueID = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lbSumLabel_Qty = new System.Windows.Forms.Label();
             this.No = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PartNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Pack_Qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Lot_No = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -64,6 +67,7 @@
             this.No,
             this.Column2,
             this.Column3,
+            this.Column1,
             this.PartNo,
             this.Pack_Qty,
             this.Lot_No,
@@ -184,6 +188,23 @@
             this.lbUniqueID.Text = "Filter :";
             this.lbUniqueID.Visible = false;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(1326, 557);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(96, 24);
+            this.label1.TabIndex = 26;
+            this.label1.Text = "จำนวนกล่อง";
+            // 
+            // lbSumLabel_Qty
+            // 
+            this.lbSumLabel_Qty.AutoSize = true;
+            this.lbSumLabel_Qty.Location = new System.Drawing.Point(1444, 557);
+            this.lbSumLabel_Qty.Name = "lbSumLabel_Qty";
+            this.lbSumLabel_Qty.Size = new System.Drawing.Size(0, 24);
+            this.lbSumLabel_Qty.TabIndex = 27;
+            // 
             // No
             // 
             this.No.DataPropertyName = "No";
@@ -198,7 +219,7 @@
             this.Column2.HeaderText = "วัน/เดือน/ปี";
             this.Column2.Name = "Column2";
             this.Column2.ReadOnly = true;
-            this.Column2.Width = 120;
+            this.Column2.Width = 200;
             // 
             // Column3
             // 
@@ -207,6 +228,14 @@
             this.Column3.Name = "Column3";
             this.Column3.ReadOnly = true;
             this.Column3.Width = 150;
+            // 
+            // Column1
+            // 
+            this.Column1.DataPropertyName = "Drawing_No";
+            this.Column1.HeaderText = "Drawing_No";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Width = 150;
             // 
             // PartNo
             // 
@@ -222,7 +251,6 @@
             this.Pack_Qty.HeaderText = "QTY.(Pcs.)";
             this.Pack_Qty.Name = "Pack_Qty";
             this.Pack_Qty.ReadOnly = true;
-            this.Pack_Qty.Width = 120;
             // 
             // Lot_No
             // 
@@ -286,6 +314,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1552, 733);
+            this.Controls.Add(this.lbSumLabel_Qty);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.lbUniqueID);
             this.Controls.Add(this.txtCustomer);
             this.Controls.Add(this.label4);
@@ -322,9 +352,12 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtCustomer;
         private System.Windows.Forms.Label lbUniqueID;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lbSumLabel_Qty;
         private System.Windows.Forms.DataGridViewTextBoxColumn No;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn PartNo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Pack_Qty;
         private System.Windows.Forms.DataGridViewTextBoxColumn Lot_No;

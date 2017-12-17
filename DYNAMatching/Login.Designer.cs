@@ -126,7 +126,7 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(60, 13);
             this.label3.TabIndex = 7;
-            this.label3.Text = "Version 1.2";
+            this.label3.Text = "Version 1.3";
             // 
             // Login
             // 

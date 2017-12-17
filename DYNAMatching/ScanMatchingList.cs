@@ -12,6 +12,7 @@ namespace DYNAMatching
         public string username;
         public string userkey;
         public string UNIQUEID;
+        public int SumLabel_Qty = 0;
 
         DBTransaction DBT = new DBTransaction();
 
@@ -36,10 +37,11 @@ namespace DYNAMatching
             //string DateCondition = " (Convert(Date,TScan.CreateDate) >='" + StartDate + "' AND Convert(Date,TScan.CreateDate) <= '" + EndDate + "' ) ";
 
             string UNIQUECondition = " TimeToScan = '" + UNIQUEID + "' ";
-            //string UNIQUECondition = "";
+
             DataTable DTS = new DataTable();
-            string condition = " and " + UNIQUECondition + getCustomerCondition();
-            //string condition = "" + UNIQUECondition + getCustomerCondition();
+            string condition = getCustomerCondition();
+            //string condition = " and " + UNIQUECondition + getCustomerCondition();
+
 
             DTS = DBT.GetExcuteDataTableOneCon("spGetTScanLabelByCondition", condition);
 
@@ -47,9 +49,15 @@ namespace DYNAMatching
             DTS.Columns.Remove("CreateBy");
             DTS.Columns.Remove("Log_Id");
             DTS.Columns.Remove("Part_Name");
-            //DTS.Columns.Remove("CreateByName");
+
 
             
+            foreach (DataRow row in DTS.Rows) {
+                SumLabel_Qty += Convert.ToInt32(row["Label_Qty"]);
+            }
+            //DTS.Columns.Remove("Label_Qty");
+            lbSumLabel_Qty.Text = SumLabel_Qty.ToString();
+
             if (DTS.Rows.Count > 0)
             {
                
@@ -59,6 +67,8 @@ namespace DYNAMatching
             {
                 dgView.DataSource = null;
             }
+
+
         }
 
         private string getCustomerCondition()
