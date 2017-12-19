@@ -55,7 +55,9 @@ namespace DYNAMatching
             foreach (DataRow row in DTS.Rows) {
                 SumLabel_Qty += Convert.ToInt32(row["Label_Qty"]);
             }
-            //DTS.Columns.Remove("Label_Qty");
+            
+
+
             lbSumLabel_Qty.Text = SumLabel_Qty.ToString();
 
             if (DTS.Rows.Count > 0)
