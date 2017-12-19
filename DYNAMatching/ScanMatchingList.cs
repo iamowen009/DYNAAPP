@@ -39,8 +39,8 @@ namespace DYNAMatching
             string UNIQUECondition = " TimeToScan = '" + UNIQUEID + "' ";
 
             DataTable DTS = new DataTable();
-            string condition = getCustomerCondition();
-            //string condition = " and " + UNIQUECondition + getCustomerCondition();
+            //string condition = getCustomerCondition();
+            string condition = " and " + UNIQUECondition + getCustomerCondition();
 
 
             DTS = DBT.GetExcuteDataTableOneCon("spGetTScanLabelByCondition", condition);
