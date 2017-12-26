@@ -29,17 +29,6 @@
         private void InitializeComponent()
         {
             this.dgView = new System.Windows.Forms.DataGridView();
-            this.label3 = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.btSearch = new System.Windows.Forms.Button();
-            this.ckNissanNMT = new System.Windows.Forms.CheckBox();
-            this.ckNissanNPT = new System.Windows.Forms.CheckBox();
-            this.ckToyota = new System.Windows.Forms.CheckBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.txtCustomer = new System.Windows.Forms.TextBox();
-            this.lbUniqueID = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.lbSumLabel_Qty = new System.Windows.Forms.Label();
             this.No = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -53,6 +42,17 @@
             this.Order_No = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.RanNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CreateBy = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label3 = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.btSearch = new System.Windows.Forms.Button();
+            this.ckNissanNMT = new System.Windows.Forms.CheckBox();
+            this.ckNissanNPT = new System.Windows.Forms.CheckBox();
+            this.ckToyota = new System.Windows.Forms.CheckBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtCustomer = new System.Windows.Forms.TextBox();
+            this.lbUniqueID = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lbSumLabel_Qty = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
@@ -82,6 +82,110 @@
             this.dgView.ReadOnly = true;
             this.dgView.Size = new System.Drawing.Size(1497, 442);
             this.dgView.TabIndex = 4;
+            // 
+            // No
+            // 
+            this.No.DataPropertyName = "No";
+            this.No.HeaderText = "No";
+            this.No.Name = "No";
+            this.No.ReadOnly = true;
+            this.No.Width = 50;
+            // 
+            // Column2
+            // 
+            this.Column2.DataPropertyName = "CreateDate";
+            this.Column2.HeaderText = "วัน/เดือน/ปี";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            this.Column2.Width = 200;
+            // 
+            // Column3
+            // 
+            this.Column3.DataPropertyName = "Customer";
+            this.Column3.HeaderText = "Customer";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            this.Column3.Width = 150;
+            // 
+            // Column1
+            // 
+            this.Column1.DataPropertyName = "Drawing_No";
+            this.Column1.HeaderText = "Drawing_No";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Width = 150;
+            // 
+            // PartNo
+            // 
+            this.PartNo.DataPropertyName = "Part_No";
+            this.PartNo.HeaderText = "Part No.";
+            this.PartNo.Name = "PartNo";
+            this.PartNo.ReadOnly = true;
+            this.PartNo.Width = 200;
+            // 
+            // Pack_Qty
+            // 
+            this.Pack_Qty.DataPropertyName = "Pack_Qty";
+            this.Pack_Qty.HeaderText = "QTY.(Pcs.)";
+            this.Pack_Qty.Name = "Pack_Qty";
+            this.Pack_Qty.ReadOnly = true;
+            // 
+            // Lot_No
+            // 
+            this.Lot_No.DataPropertyName = "Lot_No";
+            this.Lot_No.HeaderText = "Lot No.";
+            this.Lot_No.Name = "Lot_No";
+            this.Lot_No.ReadOnly = true;
+            this.Lot_No.Width = 200;
+            // 
+            // Rank_No
+            // 
+            this.Rank_No.DataPropertyName = "Rank_No";
+            this.Rank_No.HeaderText = "Color/Rank";
+            this.Rank_No.Name = "Rank_No";
+            this.Rank_No.ReadOnly = true;
+            this.Rank_No.Width = 200;
+            // 
+            // Column6
+            // 
+            this.Column6.DataPropertyName = "Issue_No";
+            this.Column6.HeaderText = "Issue No.";
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
+            this.Column6.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.Column6.Width = 250;
+            // 
+            // Serial_No
+            // 
+            this.Serial_No.DataPropertyName = "Serial_No";
+            this.Serial_No.HeaderText = "Serial No.";
+            this.Serial_No.Name = "Serial_No";
+            this.Serial_No.ReadOnly = true;
+            this.Serial_No.Width = 200;
+            // 
+            // Order_No
+            // 
+            this.Order_No.DataPropertyName = "Order_No";
+            this.Order_No.HeaderText = "Order No.";
+            this.Order_No.Name = "Order_No";
+            this.Order_No.ReadOnly = true;
+            this.Order_No.Width = 200;
+            // 
+            // RanNo
+            // 
+            this.RanNo.DataPropertyName = "RanNo";
+            this.RanNo.HeaderText = "Ran No.";
+            this.RanNo.Name = "RanNo";
+            this.RanNo.ReadOnly = true;
+            this.RanNo.Width = 200;
+            // 
+            // CreateBy
+            // 
+            this.CreateBy.DataPropertyName = "CreateByName";
+            this.CreateBy.HeaderText = "Scan By";
+            this.CreateBy.Name = "CreateBy";
+            this.CreateBy.ReadOnly = true;
+            this.CreateBy.Width = 200;
             // 
             // label3
             // 
@@ -204,110 +308,6 @@
             this.lbSumLabel_Qty.Name = "lbSumLabel_Qty";
             this.lbSumLabel_Qty.Size = new System.Drawing.Size(0, 24);
             this.lbSumLabel_Qty.TabIndex = 27;
-            // 
-            // No
-            // 
-            this.No.DataPropertyName = "No";
-            this.No.HeaderText = "No";
-            this.No.Name = "No";
-            this.No.ReadOnly = true;
-            this.No.Width = 50;
-            // 
-            // Column2
-            // 
-            this.Column2.DataPropertyName = "CreateDate";
-            this.Column2.HeaderText = "วัน/เดือน/ปี";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            this.Column2.Width = 200;
-            // 
-            // Column3
-            // 
-            this.Column3.DataPropertyName = "Customer";
-            this.Column3.HeaderText = "Customer";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            this.Column3.Width = 150;
-            // 
-            // Column1
-            // 
-            this.Column1.DataPropertyName = "Drawing_No";
-            this.Column1.HeaderText = "Drawing_No";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            this.Column1.Width = 150;
-            // 
-            // PartNo
-            // 
-            this.PartNo.DataPropertyName = "Part_No";
-            this.PartNo.HeaderText = "Part No.";
-            this.PartNo.Name = "PartNo";
-            this.PartNo.ReadOnly = true;
-            this.PartNo.Width = 200;
-            // 
-            // Pack_Qty
-            // 
-            this.Pack_Qty.DataPropertyName = "Pack_Qty";
-            this.Pack_Qty.HeaderText = "QTY.(Pcs.)";
-            this.Pack_Qty.Name = "Pack_Qty";
-            this.Pack_Qty.ReadOnly = true;
-            // 
-            // Lot_No
-            // 
-            this.Lot_No.DataPropertyName = "Lot_No";
-            this.Lot_No.HeaderText = "Lot No.";
-            this.Lot_No.Name = "Lot_No";
-            this.Lot_No.ReadOnly = true;
-            this.Lot_No.Width = 200;
-            // 
-            // Rank_No
-            // 
-            this.Rank_No.DataPropertyName = "Rank_No";
-            this.Rank_No.HeaderText = "Color/Rank";
-            this.Rank_No.Name = "Rank_No";
-            this.Rank_No.ReadOnly = true;
-            this.Rank_No.Width = 200;
-            // 
-            // Column6
-            // 
-            this.Column6.DataPropertyName = "Issue_No";
-            this.Column6.HeaderText = "Issue No.";
-            this.Column6.Name = "Column6";
-            this.Column6.ReadOnly = true;
-            this.Column6.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.Column6.Width = 250;
-            // 
-            // Serial_No
-            // 
-            this.Serial_No.DataPropertyName = "Serial_No";
-            this.Serial_No.HeaderText = "Serial No.";
-            this.Serial_No.Name = "Serial_No";
-            this.Serial_No.ReadOnly = true;
-            this.Serial_No.Width = 200;
-            // 
-            // Order_No
-            // 
-            this.Order_No.DataPropertyName = "Order_No";
-            this.Order_No.HeaderText = "Order No.";
-            this.Order_No.Name = "Order_No";
-            this.Order_No.ReadOnly = true;
-            this.Order_No.Width = 200;
-            // 
-            // RanNo
-            // 
-            this.RanNo.DataPropertyName = "RanNo";
-            this.RanNo.HeaderText = "Ran No.";
-            this.RanNo.Name = "RanNo";
-            this.RanNo.ReadOnly = true;
-            this.RanNo.Width = 200;
-            // 
-            // CreateBy
-            // 
-            this.CreateBy.DataPropertyName = "CreateByName";
-            this.CreateBy.HeaderText = "Scan By";
-            this.CreateBy.Name = "CreateBy";
-            this.CreateBy.ReadOnly = true;
-            this.CreateBy.Width = 200;
             // 
             // ScanMatchingList
             // 

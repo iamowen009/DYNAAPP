@@ -49,9 +49,11 @@ namespace DYNAMatching
             DTS.Columns.Remove("CreateBy");
             DTS.Columns.Remove("Log_Id");
             DTS.Columns.Remove("Part_Name");
-
-
+            DTS.Columns.Remove("TimeToScan");
             
+
+
+
             foreach (DataRow row in DTS.Rows) {
                 SumLabel_Qty += Convert.ToInt32(row["Label_Qty"]);
             }
